@@ -8,6 +8,7 @@ export const PictureBrowserWrapper = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 9999;
   background-color: #333;
 
   .top {
@@ -53,7 +54,7 @@ export const PictureBrowserWrapper = styled.div`
 
       img {
         position: absolute;
-        width: 100vh;
+        max-width: 100vh;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -82,17 +83,16 @@ export const PictureBrowserWrapper = styled.div`
         transition: all 500ms ease;
       }
     }
-    }
   }
 
   .preview {
     display: flex;
     justify-content: center;
-    height: 100px;
+    /* height: 100px; */
     margin-top: 10px;
 
     .info {
-      width: 100vh;
+      max-width: 100vh;
       color: #fff;
 
       .desc {
@@ -108,6 +108,7 @@ export const PictureBrowserWrapper = styled.div`
         margin-top: 3px;
         transition: height 300ms ease;
         overflow: hidden;
+        margin-bottom: 10px;
         height: ${(props) => (props.showList ? "67px" : "0")};
         
         .item {
@@ -115,7 +116,10 @@ export const PictureBrowserWrapper = styled.div`
           cursor: pointer;
 
           img {
+            width: 50px;
             height: 67px;
+            object-fit: cover;
+
             opacity: 0.5;
           }
 
